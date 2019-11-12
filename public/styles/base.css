@@ -1,3 +1,8 @@
+@import url('./reset.css');
+@import url('./layout.css');
+@import url('./modules.css');
+@import url('./icon.css');
+
 body {
   background-color: blue;
 }
