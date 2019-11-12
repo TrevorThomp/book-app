@@ -8,6 +8,7 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
+const getBooks = require('./data/books')
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser());
