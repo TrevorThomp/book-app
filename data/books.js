@@ -4,8 +4,8 @@ const superagent = require('superagent');
 
 function Book(info) {
   this.title = info.title || 'No title available';
-  this.author = this.authors || 'No author available';
-  this.description = this.description || 'No description available';
+  this.author = info.authors || 'No author available';
+  this.description = info.description || 'No description available';
 }
 
 
@@ -24,8 +24,8 @@ function getBooks(request,response) {
       })
       response.status(200).json(bookData)
     }
-    // .then(results => response.render())
     )
+    .then(results => response.render(`views/pages/searches/show`, {searchResults : results}))
     .catch(() => console.log('Something is not right'), request,response)
 }
 
