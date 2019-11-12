@@ -25,9 +25,33 @@
 
 Number and name of feature: Application Rendering
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete: 30 minutes
 
-Start time: 
+Start time: 8:10am
+
+Finish time: 8:30am
+
+Actual time needed to complete: 20 minutes
+
+## Feature #2: Search Field
+
+Number and name of feature: Search Field
+
+Estimate of time needed to complete: 20 minutes
+
+Start time: 8:30am
+
+Finish time: 8:40am
+
+Actual time needed to complete: 10 minutes
+
+## Feature #3: Google Books API
+
+Number and name of feature: Google Books API
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 8:40am
 
 Finish time: 
 
