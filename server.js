@@ -16,7 +16,7 @@ app.use(cors());
 
 // View Engine
 app.use('/public', express.static('public'));
-app.set('views', path.join(__dirname, 'views/pages'))
+app.set('views', path.join(__dirname, 'views/pages'));
 app.set('view engine', 'ejs');
 
 app.get('/', (request, response) => {
