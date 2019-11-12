@@ -6,18 +6,21 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const bodyParser = require('body-parser');
+const path = require('path');
 const PORT = process.env.PORT || 3000;
 
+app.use(bodyParser());
 app.use(cors());
-app.use(express.static('public'));
 
 // View Engine
-app.set('views', './views');
+app.use(express.static('public'));
+app.set('views', path.join(__dirname, 'views/pages'))
 app.set('view engine', 'ejs');
 
-app.get('/', (request,response) => {
-  response.render('index')
-});
+app.get('/', (request, response) => {
+  response.render('index');
+})
 
 
 app.listen(PORT, console.log(`Listening on ${PORT}`));
