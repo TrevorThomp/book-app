@@ -3,10 +3,12 @@
 @import url('./modules.css');
 @import url('./icon.css');
 
-body {
-  background-color: blue;
+* {
+  font-family: 'Yeon Sung', cursive;
+  font-weight: bold;
 }
 
-h1 {
-  color: red;
+li {
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
 }
