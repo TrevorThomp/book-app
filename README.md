@@ -71,3 +71,16 @@ Start time: 1:00pm
 Finish time:
 
 Actual time needed to complete: 
+
+
+## Feature #4: Error View
+
+Number and name of feature: Error View
+
+Estimate of time needed to complete: 30 minutes
+
+Start time: 1:00pm
+
+Finish time:
+
+Actual time needed to complete: 

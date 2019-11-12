@@ -8,9 +8,10 @@
   <title>Show Searches</title>
 </head>
 <body>
-
+  <h3>Book API Search Results</h3>
   <ul>
       <% searchResults.forEach(item => { %>
+        <li><img src="<%= item.image_url %>"</li>
         <li><%= item.title %></li>
         <li><%= item.author %></li>
         <li><%= item.description %></li>

@@ -3,9 +3,13 @@
 const superagent = require('superagent');
 
 function Book(info) {
+  const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
+  let httpRegex = /^(http:\/\/)/g;
+
   this.title = info.title || 'No title available';
   this.author = info.authors || 'No author available';
   this.description = info.description || 'No description available';
+  this.image_url = info.imageLinks ? info.imageLinks.smallThumbnail.replace(httpRegex, 'https://') : placeholderImage;
 }
 
 
@@ -19,7 +23,12 @@ function getBooks(request,response) {
     .get(url)
     .then(result => result.body.items.map(data => new Book(data.volumeInfo)))
     .then(results => response.render('searches/show', {searchResults: results}))
-    .catch(() => console.log('Something is not right'), request,response)
+    .catch(err => handleError(err,response));
 }
+
+function handleError(error,response) {
+  response.render('pages/error', {error: error})
+}
+
 
 module.exports = getBooks;
