@@ -14,11 +14,11 @@ app.use(bodyParser());
 app.use(cors());
 
 // View Engine
-app.use(express.static('public'));
+app.use('/public', express.static('public'));
 app.set('views', path.join(__dirname, 'views/pages'))
 app.set('view engine', 'ejs');
 
-app.get('/', (request, response) => {
+app.get('/hello', (request, response) => {
   response.render('index');
 })
 
