@@ -8,7 +8,7 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
-const getBooks = require('./data/books')
+const getBooks = require('./data/books.js')
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser());
@@ -23,5 +23,6 @@ app.get('/', (request, response) => {
   response.render('index');
 })
 
+app.post('/searches', getBooks);
 
 app.listen(PORT, console.log(`Listening on ${PORT}`));
