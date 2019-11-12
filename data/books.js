@@ -17,15 +17,8 @@ function getBooks(request,response) {
 
   return superagent
     .get(url)
-    .then(result => {
-      console.log(result)
-      let bookData = result.body.items.map(data => {
-        return new Book(data.volumeInfo)
-      })
-      response.status(200).json(bookData)
-    }
-    )
-    .then(results => response.render(`views/pages/searches/show`, {searchResults : results}))
+    .then(result => result.body.items.map(data => new Book(data.volumeInfo)))
+    .then(results => response.render('searches/show', {searchResults: results}))
     .catch(() => console.log('Something is not right'), request,response)
 }
 

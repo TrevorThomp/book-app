@@ -5,9 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../../../public/styles/base.css">
-  <title>Document</title>
+  <title>Show Searches</title>
 </head>
 <body>
+
+  <ul>
+      <% searchResults.forEach(item => { %>
+        <li><%= item.title %></li>
+      <% }) %>
+  </ul>
   
 </body>
 </html>
