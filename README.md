@@ -21,14 +21,14 @@
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 -->
 
-## Feature #1:
+## Feature #1: Application Rendering
 
-Number and name of feature: ________________________________
+Number and name of feature: Application Rendering
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 
 
-Start time: _____
+Start time: 
 
-Finish time: _____
+Finish time: 
 
-Actual time needed to complete: _____
+Actual time needed to complete: 
