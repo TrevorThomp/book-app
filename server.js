@@ -37,12 +37,14 @@ function Book(info) {
   const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
   let httpRegex = /^(http:\/\/)/g;
 
-  this.title = info.title ? info.title : 'No title available';
-  this.author = info.authors ? info.authors[0] : 'No author available';
-  this.isbn = info.industryIdentifiers ? `ISBN_13 ${info.industryIdentifiers[0].identifier}` : 'No ISBN available';
+  this.title = info.title || 'No title available';
+  this.author = info.authors || 'No author available';
+  this.description = info.description || 'No description available';
   this.image_url = info.imageLinks ? info.imageLinks.smallThumbnail.replace(httpRegex, 'https://') : placeholderImage;
-  this.description = info.description ? info.description : 'No description available';
-  this.id = info.industryIdentifiers ? `${info.industryIdentifiers[0].identifier}` : '';
+}
+
+function newSearch(request, response) {
+  response.render('searches/new')
 }
 
 
@@ -59,16 +61,12 @@ function createSearch(request,response) {
     .catch(err => handleError(err, response));
 }
 
-function newSearch(request, response) {
-  response.render('pages/index');
-}
-
 function getBooks(request,response) {
   let SQL = 'SELECT * FROM books;'
 
   return client.query(SQL)
     .then(results => response.render('index', {books: results.rows}))
-    // .catch(err => handleError(err, response));
+    .catch(err => handleError(err, response));
 }
 
 function createBook(){
@@ -84,7 +82,7 @@ function getOneBook(){
 
 // Error Handler
 function handleError(error,response) {
-  response.render('', {error: error})
+  response.render('/pages/error', {error: error})
 }
 
 // Port listener
