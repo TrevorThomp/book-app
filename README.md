@@ -4,25 +4,33 @@
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code 301 class. (i.e. What's your problem domain?) -->
+
+Application browses the Google Books API looking for user input based on author or title. User will have the option to save a book of their choosing into a database which can be accessed at a later point.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+
+1. Clone book-app repo to local
+2. Ensure psql is installed
+3. Launch nodemon in console and pull up localhost in browser
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 
-## Collaborators
-Travis Skyles
+This application uses: Node.Js, Express.Js, PostgresQL, EJS, JavaScript and CSS.
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with GET and POST routes for the book resource.
+11-12-2019 9:56am - Application now renders searched book to searches page.
+
+11-12-2019 10:30am - Application now accurately displays author,title and description.
+
+11-12-2019 2:41pm - Application now renders book image to page for display.
+
+11-12-2019 4:49pm - Application is now styled in a mobile-first approach.
+
+11-13-2019 6:45am - Application now has style guide and color pallete.
 
 ## Credits and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
--->
+Travis Skyles
 
 ## Feature #1: Application Rendering
 
