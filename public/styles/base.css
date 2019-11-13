@@ -3,10 +3,44 @@
 @import url('./modules.css');
 @import url('./icon.css');
 
-body {
-  background-color: blue;
+* {
+  font-family: 'Yeon Sung', cursive;
+  font-weight: bold;
 }
 
-h1 {
-  color: red;
+header {
+  padding: 20px;
+  background-color: antiquewhite;
+  font-size: 1.3em;
+  background-color: #718EA4;
+}
+
+
+li {
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  padding: 8px;
+  letter-spacing: 0.3px;
+}
+
+input {
+  width: 60%;
+  text-align: left;
+}
+
+button {
+  width: 80%;
+}
+
+input,
+button {
+  padding: 20px 50px;
+  font-size: 1.2em;
+  margin-bottom:  20px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #718EA4;
 }

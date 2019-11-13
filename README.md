@@ -72,7 +72,6 @@ Finish time:
 
 Actual time needed to complete: 
 
-
 ## Feature #4: Error View
 
 Number and name of feature: Error View
@@ -81,6 +80,18 @@ Estimate of time needed to complete: 30 minutes
 
 Start time: 1:00pm
 
-Finish time:
+Finish time: 1:30pm
+
+Actual time needed to complete: 30 minute
+
+## Feature #4: Styling
+
+Number and name of feature: Styling
+
+Estimate of time needed to complete: 60 minutes
+
+Start time: 2:50pm
+
+Finish time: 
 
 Actual time needed to complete: 
