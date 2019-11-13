@@ -49,6 +49,10 @@ function newSearch(request, response) {
   response.render('searches/new')
 }
 
+function test(request,response) {
+  response.render('index')
+}
+
 
 function createSearch(request,response) {
   let url = `https://www.googleapis.com/books/v1/volumes?q=`;
