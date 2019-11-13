@@ -44,13 +44,13 @@ Finish time: 8:33am
 
 Actual time needed to complete: 18 minutes
 
-## Feature #2: Database Configuration
+## Feature #2: Saved books Display
 
-Number and name of feature: Database Configuration
+Number and name of feature: Saved books Display
 
-Estimate of time needed to complete: 30 minutes
+Estimate of time needed to complete: 60 minutes
 
-Start time: 
+Start time: 9:05am
 
 Finish time: 
 

@@ -1,5 +1,6 @@
 'use strict';
 
+// dotenv Configuration
 require('dotenv').config();
 
 // Application Dependencies
@@ -15,6 +16,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser());
 app.use(cors());
 
+// Database Connetion
 const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
 client.on('err', err => console.error(err));
@@ -23,6 +25,15 @@ client.on('err', err => console.error(err));
 app.use('/public', express.static('public'));
 app.set('views', path.join(__dirname, 'views/pages'));
 app.set('view engine', 'ejs');
+
+// API Routes
+app.get('/', (request, response) => {
+  response.render('index');
+})
+app.get('/searches/new', newSearch);
+app.post('/searches', createSearch);
+app.post('/books', createBook);
+app.get('/books/:id', getOneBook);
 
 function Book(info) {
   const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
@@ -37,7 +48,7 @@ function Book(info) {
 }
 
 
-function getBooks(request,response) {
+function createSearch(request,response) {
   let url = `https://www.googleapis.com/books/v1/volumes?q=`;
 
   if (request.body.search[1] === 'title') { url += `+intitle:${request.body.search[0]}`; }
@@ -50,15 +61,27 @@ function getBooks(request,response) {
     .catch(err => handleError(err,response));
 }
 
+function getBooks() {
+  //create a SQL statement to get all books in the the database that was saved previously
+  //render the books on an EJS page
+  //catch any errors
+}
+
+function createBook(){
+  //create a SQL statement to insert book
+  //return id of book back to calling function
+
+}
+
+function getOneBook(){
+  //use the id passed in from the front-end (ejs form) 
+
+}
+
+// Error Handler
 function handleError(error,response) {
   response.render('pages/error', {error: error})
 }
 
-// Home Page Route
-app.get('/', (request, response) => {
-  response.render('index');
-})
-
-app.post('/searches', getBooks);
-
+// Port listener
 app.listen(PORT, console.log(`Listening on ${PORT}`));
