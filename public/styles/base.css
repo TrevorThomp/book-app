@@ -19,6 +19,8 @@ header {
 li {
   font-family: 'Roboto Slab', serif;
   font-weight: bold;
+  padding: 8px;
+  letter-spacing: 0.3px;
 }
 
 input {
@@ -28,6 +30,13 @@ input {
 
 button {
   width: 80%;
+}
+
+input,
+button {
+  padding: 20px 50px;
+  font-size: 1.2em;
+  margin-bottom:  20px;
 }
 
 footer {
