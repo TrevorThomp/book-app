@@ -9,10 +9,15 @@
 }
 
 header {
-  padding: 20px;
-  background-color: antiquewhite;
+  padding: 35px;
   font-size: 1.3em;
   background-color: #718EA4;
+  width: 100%;
+  box-shadow: 0px 0px 4px 0px #444;
+}
+
+h1 {
+  width: 100%;
 }
 
 
@@ -43,4 +48,9 @@ footer {
   display: flex;
   justify-content: space-evenly;
   background-color: #718EA4;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
 }

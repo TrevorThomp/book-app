@@ -32,6 +32,82 @@ i:hover {
   background-color: antiquewhite;
 }
 
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?4wldlb');
+  src:  url('fonts/icomoon.eot?4wldlb#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?4wldlb') format('truetype'),
+    url('fonts/icomoon.woff?4wldlb') format('woff'),
+    url('fonts/icomoon.svg?4wldlb#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+  nav {
+    float: right;
+    width: 100%;
+  }
+  
+  nav ul {
+    display: none;
+    width: 40%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  nav li {
+    margin: 1.5vw 0;
+    padding: 2vw 0;
+    cursor: pointer;
+  }
+  
+  nav li a {
+    font-size: 3.5vw;
+  }
+  
+  nav:hover ul {
+    background-color: #266799;
+    opacity: 1;
+    display: block;
+    padding: 1.5vw;
+    position: absolute;
+    right: 0;
+  }
+  
+  nav li:hover {
+    cursor: pointer;
+  }
+  
+  .icon-menu {
+    color: #fff;
+    font-size: 8vw;
+    line-height: 10vw;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+.icon-menu:before {
+  content: "\e9bd";
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* Style Guide Styling */
 
 }
