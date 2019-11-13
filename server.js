@@ -8,7 +8,7 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
-const getBooks = require('./data/books.js')
+const superagent = require('superagent');
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser());
@@ -19,8 +19,32 @@ app.use('/public', express.static('public'));
 app.set('views', path.join(__dirname, 'views/pages'));
 app.set('view engine', 'ejs');
 
-function errorHandler(error,request,response) {
-  response.status(404).send(error) || response.status(500).send(error)
+function Book(info) {
+  const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
+  let httpRegex = /^(http:\/\/)/g;
+
+  this.title = info.title || 'No title available';
+  this.author = info.authors || 'No author available';
+  this.description = info.description || 'No description available';
+  this.image_url = info.imageLinks ? info.imageLinks.smallThumbnail.replace(httpRegex, 'https://') : placeholderImage;
+}
+
+
+function getBooks(request,response) {
+  let url = `https://www.googleapis.com/books/v1/volumes?q=`;
+
+  if (request.body.search[1] === 'title') { url += `+intitle:${request.body.search[0]}`; }
+  if (request.body.search[1] === 'author') { url += `+inauthor:${request.body.search[0]}`; }
+
+  return superagent
+    .get(url)
+    .then(result => result.body.items.map(data => new Book(data.volumeInfo)))
+    .then(results => response.render('searches/show', {searchResults: results}))
+    .catch(err => handleError(err,response));
+}
+
+function handleError(error,response) {
+  response.render('pages/error', {error: error})
 }
 
 // Home Page Route

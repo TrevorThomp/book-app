@@ -32,86 +32,15 @@ This application uses: Node.Js, Express.Js, PostgresQL, EJS, JavaScript and CSS.
 ## Credits and Collaborations
 Travis Skyles
 
-## Feature #1: Application Rendering
+## Feature #1: Database Configuration
 
-Number and name of feature: Application Rendering
-
-Estimate of time needed to complete: 30 minutes
-
-Start time: 8:10am
-
-Finish time: 8:30am
-
-Actual time needed to complete: 20 minutes
-
-## Feature #2: Search Field
-
-Number and name of feature: Search Field
-
-Estimate of time needed to complete: 20 minutes
-
-Start time: 8:30am
-
-Finish time: 8:40am
-
-Actual time needed to complete: 10 minutes
-
-## Feature #3: Google Books API
-
-Number and name of feature: Google Books API
-
-Estimate of time needed to complete: 1 hour
-
-Start time: 8:40am
-
-Finish time: 10:30am
-
-Actual time needed to complete: 1 hour 10 minutes
-
-## Feature #4: Error View
-
-Number and name of feature: Error View
+Number and name of feature: Database Configuration
 
 Estimate of time needed to complete: 30 minutes
 
-Start time: 1:00pm
+Start time: 8:15am
 
-Finish time:
+Finish time: 
 
 Actual time needed to complete: 
 
-## Feature #4: Error View
-
-Number and name of feature: Error View
-
-Estimate of time needed to complete: 30 minutes
-
-Start time: 1:00pm
-
-Finish time: 1:30pm
-
-Actual time needed to complete: 30 minute
-
-## Feature #4: Styling
-
-Number and name of feature: Styling
-
-Estimate of time needed to complete: 60 minutes
-
-Start time: 2:50pm
-
-Finish time: 5:00pm
-
-Actual time needed to complete: 3 hours
-
-## Feature #5: Style Guide
-
-Number and name of feature: Style Guide
-
-Estimate of time needed to complete: 30 minutes
-
-Start time: 6:30am
-
-Finish time: 6:45am
-
-Actual time needed to complete: 15 minutes
