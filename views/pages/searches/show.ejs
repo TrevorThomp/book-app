@@ -10,14 +10,14 @@
   <title>Show Searches</title>
 </head>
 
-<header id="header-container">
-    <h1>Best Books</h1>
-    <i class="fas fa-bars"></i>
-  </header>
-
 <body>
+    <header id="header-container">
+        <h1>Best Books</h1>
+        <i class="fas fa-bars"></i>
+      </header>
+
     <h2 id="title">Search by Title or Author</h2>
-  <ul id="result-container">
+    <ul id="result-container">
       <% searchResults.forEach(item => { %>
       <div class="books">
         <li id="image"><img src="<%= item.image_url %>"</li>
@@ -27,13 +27,15 @@
       </div>
       <% }) %>
   </ul>
-</body>
 
-<footer id="footer-container">
+  <footer id="footer-container">
       <i class="fab fa-facebook"></i>
       <i class="fab fa-linkedin"></i>
       <i class="fab fa-twitter"></i>
       <i class="fas fa-envelope-open-text"></i>
   </footer>
+</body>
+
+
 
 </html>

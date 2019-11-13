@@ -16,24 +16,22 @@
     <i class="fas fa-bars"></i>
   </header>
 
-  <main id="index-container">
-    <form action="./searches/" method="post" id="form-container">
-      <h2 id="title">Search by Title or Author</h2>
-      <input type="text" id="text-input" name="search" placeholder="Enter a title or author" required>
-      <fieldset>
-        <label for="title">
-          <span>Title</span>
-          <input type="radio" class="radio" name="search" value="title" required>
-        </label>
-      </fieldset>
-      <fieldset>
-        <label for="author">
-          <span>Author</span>
-          <input type="radio" class="radio" name="search" value="author" required>
-        </label>
-      </fieldset>
-      <button type="submit">Search Google Books API</button>
-    </form>
+  <main>
+      
+      <h2 id="title">
+          <% books.forEach(item => { %>
+            <span id="count"><%= books.length %></span>
+          <% }) %> Saved Books</h2>
+      <ul id="result-container">
+          <% books.forEach(item => { %>
+          <div class="books">
+            <li id="image"><img src="<%= item.image_url %>"</li>
+            <li id="book-title"><%= item.title %></li>
+            <li id="author"><%= item.author %></li>
+            <li id="description"><%= item.description %></li>
+          </div>
+          <% }) %>
+      </ul>
   </main>
 
   <footer id="footer-container">
