@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Google Books API Search</title>
+</head>
+<body>
+
+    <main id="index-container">
+        <form action="./searches/" method="post" id="form-container">
+          <h2 id="title">Search by Title or Author</h2>
+          <input type="text" id="text-input" name="search" placeholder="Enter a title or author" required>
+          <fieldset>
+            <label for="title">
+              <span>Title</span>
+              <input type="radio" class="radio" name="search" value="title" required>
+            </label>
+          </fieldset>
+          <fieldset>
+            <label for="author">
+              <span>Author</span>
+              <input type="radio" class="radio" name="search" value="author" required>
+            </label>
+          </fieldset>
+          <button type="submit">Search Google Books API</button>
+        </form>
+      </main>
+  
+</body>
+</html>

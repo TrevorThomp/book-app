@@ -27,9 +27,7 @@ app.set('views', path.join(__dirname, 'views/pages'));
 app.set('view engine', 'ejs');
 
 // API Routes
-app.get('/', (request, response) => {
-  response.render('index');
-})
+app.get('/', getBooks);
 app.get('/searches/new', newSearch);
 app.post('/searches', createSearch);
 app.post('/books', createBook);
@@ -58,13 +56,19 @@ function createSearch(request,response) {
     .get(url)
     .then(result => result.body.items.map(data => new Book(data.volumeInfo)))
     .then(results => response.render('searches/show', {searchResults: results}))
-    .catch(err => handleError(err,response));
+    .catch(err => handleError(err, response));
 }
 
-function getBooks() {
-  //create a SQL statement to get all books in the the database that was saved previously
-  //render the books on an EJS page
-  //catch any errors
+function newSearch(request, response) {
+  response.render('pages/index');
+}
+
+function getBooks(request,response) {
+  let SQL = 'SELECT * FROM books;'
+
+  return client.query(SQL)
+    .then(results => response.render('index', {books: results.rows}))
+    // .catch(err => handleError(err, response));
 }
 
 function createBook(){
@@ -80,7 +84,7 @@ function getOneBook(){
 
 // Error Handler
 function handleError(error,response) {
-  response.render('pages/error', {error: error})
+  response.render('', {error: error})
 }
 
 // Port listener
