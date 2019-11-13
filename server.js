@@ -9,10 +9,15 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const superagent = require('superagent');
+const pg = require('pg');
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser());
 app.use(cors());
+
+const client = new pg.Client(process.env.DATABASE_URL);
+client.connect();
+client.on('err', err => console.error(err));
 
 // View Engine
 app.use('/public', express.static('public'));

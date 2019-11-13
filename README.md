@@ -44,3 +44,14 @@ Finish time: 8:33am
 
 Actual time needed to complete: 18 minutes
 
+## Feature #2: Database Configuration
+
+Number and name of feature: Database Configuration
+
+Estimate of time needed to complete: 30 minutes
+
+Start time: 
+
+Finish time: 
+
+Actual time needed to complete: 
