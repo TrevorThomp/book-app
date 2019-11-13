@@ -75,10 +75,21 @@ function getBooks(request,response) {
     .catch(err => handleError(err, response));
 }
 
-function createBook(){
+function createBook(request,response){
+  let normalizedBookshelf = request.body.bookshelf.toLowerCase();
   //create a SQL statement to insert book
+  let { title,author,isbn,image_url, description } = request.body;
+  let SQL = 'INSERT INTO books(title, author, isbn, image_url, description, bookshelf) VALUES($1,$2,$3,$4,$5,$6)';
   //return id of book back to calling function
+  let values = [title, author, isbn, image_url, description, normalizedBookshelf];
 
+  return client.query(SQL, values)
+    .then(() => {
+      SQL = 'SELECT * FROM books isbn=$1';
+      values = [request.body.isbn];
+      return client.query(SQL, values)
+        .then(result => response.redirect(`/books/${result.rows[0].id}`))
+    })
 }
 
 function getOneBook(){
