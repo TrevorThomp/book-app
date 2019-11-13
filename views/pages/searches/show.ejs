@@ -21,6 +21,7 @@
       <% searchResults.forEach(item => { %>
       <div class="books">
         <li id="image"><img src="<%= item.image_url %>"</li>
+        <li><%= item.isbn %></li>
         <li id="book-title"><%= item.title %></li>
         <li id="author"><%= item.author %></li>
         <li id="description"><%= item.description %></li>

@@ -35,12 +35,14 @@ app.get('/books/:id', getOneBook);
 
 function Book(info) {
   const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
-  let httpRegex = /^(http:\/\/)/g;
+  let httpRegex = /^(http:\/\/)/g
 
-  this.title = info.title || 'No title available';
-  this.author = info.authors || 'No author available';
-  this.description = info.description || 'No description available';
+  this.title = info.title ? info.title : 'No title available';
+  this.author = info.authors ? info.authors[0] : 'No author available';
+  this.isbn = info.industryIdentifiers ? `ISBN_13 ${info.industryIdentifiers[0].identifier}` : 'No ISBN available';
   this.image_url = info.imageLinks ? info.imageLinks.smallThumbnail.replace(httpRegex, 'https://') : placeholderImage;
+  this.description = info.description ? info.description : 'No description available';
+  this.id = info.industryIdentifiers ? `${info.industryIdentifiers[0].identifier}` : '';
 }
 
 function newSearch(request, response) {
@@ -82,7 +84,7 @@ function getOneBook(){
 
 // Error Handler
 function handleError(error,response) {
-  response.render('/pages/error', {error: error})
+  response.render('error', {error: error})
 }
 
 // Port listener
