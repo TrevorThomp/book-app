@@ -95,3 +95,15 @@ Start time: 2:50pm
 Finish time: 5:00pm
 
 Actual time needed to complete: 3 hours
+
+## Feature #5: Style Guide
+
+Number and name of feature: Style Guide
+
+Estimate of time needed to complete: 30 minutes
+
+Start time: 6:30am
+
+Finish time: 6:45am
+
+Actual time needed to complete: 15 minutes
