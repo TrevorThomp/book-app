@@ -1,0 +1,53 @@
+/* Index.ejs Styling */
+#header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#title {
+  background-color: #266799;
+  font-size: 1.2em;
+  color: white;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 20px;
+}
+
+#text-input {
+  margin-top: 100px;
+}
+
+input,
+button {
+  padding: 20px 50px;
+  font-size: 1.2em;
+  margin-bottom:  20px;
+}
+
+.radio {
+  width: 30px;
+}
+
+#footer-container {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  background-color: #718EA4;
+}
+
+i:hover {
+  cursor: pointer;
+}
