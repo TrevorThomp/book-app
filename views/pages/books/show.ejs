@@ -24,16 +24,20 @@
 
       <h2 id="title">Detail View</h2>
   
-      <ul id="result-container">
+      <section id="result-container">
           <div class="books">
-             <li id="image"><img src="<%= result.image_url %>"</li>
-             <li id="book-title"><%= result.title %></li>
-             <li id="author"><%= result.author %></li>
-             <li id="description"><%= result.description %></li>
-             <li><%= result.isbn %></li>
-             <li><%= result.bookshelf %></li>
+             <h2><img src="<%= result.image_url %>"</h2>
+             <h2><%= result.title %></h2>
+             <h2><%= result.author %></h2>
+             <p><%= result.description %></p>
+             <p><%= result.isbn %></p>
+             <p><%= result.bookshelf %></p>
+             <div id="update-wrapper">
+               <button class="update-btn"><a href="">Update Details</a></button>
+               <button class="update-btn"><a href="">Delete Book</a></button>
+             </div>
           </div>
-        </ul>
+        </section>
         <div id="button-wrapper">
             <button class="detail-button"><a href="/">Home Page</a></button>
         </div>

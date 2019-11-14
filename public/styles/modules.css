@@ -115,7 +115,8 @@ i:hover {
 }
 
 .detail-button,
-.add-button {
+.add-button
+ {
   width: 50%;
   transition: 0.3s;
   background-color: #266799;
