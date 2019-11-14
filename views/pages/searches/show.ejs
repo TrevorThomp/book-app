@@ -36,20 +36,20 @@
           <h2><%= item.title %></h2>
           <h2><%= item.author %></h2>
           <p><%= item.description %></p>
-          <button class="detail-button" type="submit">Select This Book</button>
+          <button class="detail-button select-button" type="submit">Select This Book</button>
         </div>
         
 
-      <section class="hide-me">
-        <form action="/books/detail" method="post" >
-            <input type="text" name="title">
-            <input type="text" name="author">
-            <input type="text" name="isbn">
-            <input type="text" name="image_url">
-            <input type="text" name="description">
-            <input type="text" name="bookshelf">
+      <section class="hide-me" id="hidden-form">
+        <form action="/books/detail" method="post" class="form-container">
+            <input type="text" name="title" required>
+            <input type="text" name="author" required>
+            <input type="text" name="isbn" required>
+            <input type="text" name="image_url" required>
+            <input type="text" name="description" required>
+            <input type="text" name="bookshelf" required>
+            <button type="submit" class="add-button">Add to Database</button>
         </form>
-        
       </section>
       <% }) %>
       
@@ -66,5 +66,5 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="/js/app.js"></script>
+<script src="../../../public/js/app.js"></script>
 </html>

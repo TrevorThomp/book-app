@@ -1,5 +1,6 @@
 'use strict';
 
 $('.select-button').on('click', function() {
-  $(this).next().removeClass('hide-me');
+  event.preventDefault()
+  $('#hidden-form').removeClass('hide-me');
 });
