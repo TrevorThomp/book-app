@@ -32,3 +32,20 @@
   justify-content: center;
   align-items: center;
 }
+
+#result-container {
+  margin: 5px auto;
+}
+
+.books p {
+  line-height: 1.2em;
+}
+
+.books {
+  padding: 15px;
+}
+
+.books h2 {
+  font-size: 1.1em;
+  margin: 10px auto;
+}

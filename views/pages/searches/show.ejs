@@ -26,17 +26,35 @@
       </header>
 
     <h2 id="title">Search by Title or Author</h2>
-    <ul id="result-container">
-      <% searchResults.forEach(item => { %>
-      <div class="books">
-        <li id="image"><img src="<%= item.image_url %>"</li>
-        <li><%= item.isbn %></li>
-        <li id="book-title"><%= item.title %></li>
-        <li id="author"><%= item.author %></li>
-        <li id="description"><%= item.description %></li>
-      </div>
+    <section id="result-container">
+    
+      
+          <% searchResults.forEach(item => { %>
+          <div class="books">
+          <img src="<%= item.image_url %>"</img>
+          <h2><%= item.isbn %></h2>
+          <h2><%= item.title %></h2>
+          <h2><%= item.author %></h2>
+          <p><%= item.description %></p>
+          <button class="detail-button" type="submit">Select This Book</button>
+        </div>
+        
+
+      <section class="hide-me">
+        <form action="/books/detail" method="post" >
+            <input type="text" name="title">
+            <input type="text" name="author">
+            <input type="text" name="isbn">
+            <input type="text" name="image_url">
+            <input type="text" name="description">
+            <input type="text" name="bookshelf">
+        </form>
+        
+      </section>
       <% }) %>
-  </ul>
+      
+
+  </section>
 
   <footer id="footer-container">
       <i class="fab fa-facebook"></i>
@@ -47,5 +65,6 @@
 </body>
 
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="/js/app.js"></script>
 </html>

@@ -84,6 +84,7 @@ function createBook(request,response){
       return client.query(SQL, values)
         .then(result => response.redirect(`/books/${result.rows[0].id}`))
     })
+    .catch(handleError)
 }
 
 function getOneBook(request,response){
