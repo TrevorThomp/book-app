@@ -78,3 +78,12 @@
   transform: scale(1.1);
   cursor: pointer;
 }
+
+#hidden-form {
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 40%;
+  padding: 20px;
+  background-color: antiquewhite;
+  margin-bottom: 20px;
+}

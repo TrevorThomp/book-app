@@ -33,16 +33,33 @@
              <p><%= result.isbn %></p>
              <p><%= result.bookshelf %></p>
              <div id="update-wrapper">
-               <button class="update-btn"><a href="">Update Details</a></button>
+               <button class="update-btn btn-update"><a href="">Update Details</a></button>
                <button class="update-btn"><a href="">Delete Book</a></button>
              </div>
           </div>
+
+          <section class="hide-me" id="hidden-form">
+              <form action="" method="post" class="form-container">
+                  <input type="text" name="title" value="<%= result.title %>" required>
+                  <input type="text" name="author" value="<%= result.author %>" required>
+                  <input type="text" name="isbn" value="<%= result.isbn %>" required>
+                  <input type="text" name="image_url" value="<%= result.image_url %>" required>
+                  <input type="text" name="description" value="<%= result.description %>" required>
+                  <input type="text" name="bookshelf" value="<%= result.bookshelf %>" required>
+                  <button type="submit" class="add-button">Update Book</button>
+              </form>
+            </section>
         </section>
+
+
+
         <div id="button-wrapper">
             <button class="detail-button"><a href="/">Home Page</a></button>
         </div>
         
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="../../../public/js/app.js"></script>
 </html>
 
