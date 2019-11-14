@@ -12,13 +12,7 @@
 <body>
 
   <header id="header-container">
-    <h1>Best Books</h1>
-    <nav>
-      <div class="icon-menu"></div>
-      <ul>
-        <li><a href="/">Home</a></li>
-      </ul>
-    </nav>
+   <% include ../layout/header %>
   </header>
 
   <main>
@@ -35,16 +29,16 @@
             <li id="book-title"><%= item.title %></li>
             <li id="author"><%= item.author %></li>
             <li id="description"><%= item.description %></li>
+            <li><button id="detail-button">View Details</button></li>
           </div>
+          
           <% }) %>
       </ul>
+      
   </main>
 
   <footer id="footer-container">
-      <i class="fab fa-facebook"></i>
-      <i class="fab fa-linkedin"></i>
-      <i class="fab fa-twitter"></i>
-      <i class="fas fa-envelope-open-text"></i>
+     <% include ../layout/footer %>
   </footer>
  
 </body>

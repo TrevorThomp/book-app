@@ -92,9 +92,21 @@ function createBook(request,response){
     })
 }
 
-function getOneBook(){
+function getOneBook(request,response){
   //use the id passed in from the front-end (ejs form) 
+  getBookShelves()
+    .then(shelves => {
+      let SQL = 'SELECT * FROM books WHERE id=$1';
+      let values = [request.params.id];
+      client.query(SQL, values)
+        .then( result => response.render('pages/books/show', {book: result.row[0], bookshelves: shelves.rows}))
+    })
+    .catch(handleError)
+}
 
+function getBookShelves() {
+  let SQL = 'SELECT DISTINCT bookshelf FROM books ORDER BY bookshelf';
+  return client.query(SQL)
 }
 
 // Error Handler
