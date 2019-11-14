@@ -108,10 +108,17 @@ i:hover {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Style Guide Styling */
-
+#detail-button {
+  width: 100%;
+  transition: 0.3s;
 }
 
+#detail-button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+/* Style Guide Styling */
 table {
   border-collapse: collapse; 
 }

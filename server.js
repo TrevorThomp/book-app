@@ -42,17 +42,11 @@ function Book(info) {
   this.isbn = info.industryIdentifiers ? `ISBN_13 ${info.industryIdentifiers[0].identifier}` : 'No ISBN available';
   this.image_url = info.imageLinks ? info.imageLinks.smallThumbnail.replace(httpRegex, 'https://') : placeholderImage;
   this.description = info.description ? info.description : 'No description available';
-  this.id = info.industryIdentifiers ? `${info.industryIdentifiers[0].identifier}` : '';
 }
 
 function newSearch(request, response) {
   response.render('searches/new')
 }
-
-function test(request,response) {
-  response.render('index')
-}
-
 
 function createSearch(request,response) {
   let url = `https://www.googleapis.com/books/v1/volumes?q=`;
