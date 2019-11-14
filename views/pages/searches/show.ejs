@@ -26,17 +26,35 @@
       </header>
 
     <h2 id="title">Search by Title or Author</h2>
-    <ul id="result-container">
-      <% searchResults.forEach(item => { %>
-      <div class="books">
-        <li id="image"><img src="<%= item.image_url %>"</li>
-        <li><%= item.isbn %></li>
-        <li id="book-title"><%= item.title %></li>
-        <li id="author"><%= item.author %></li>
-        <li id="description"><%= item.description %></li>
-      </div>
+    <section id="result-container">
+    
+      
+          <% searchResults.forEach(item => { %>
+          <div class="books">
+          <img src="<%= item.image_url %>"</img>
+          <h2><%= item.isbn %></h2>
+          <h2><%= item.title %></h2>
+          <h2><%= item.author %></h2>
+          <p><%= item.description %></p>
+          <button class="detail-button select-button" type="submit">Select This Book</button>
+        </div>
+        
+
+      <section class="hide-me" id="hidden-form">
+        <form action="/books" method="post" class="form-container">
+            <input type="text" name="title" value="<%= item.title %>" required>
+            <input type="text" name="author" value="<%= item.author %>" required>
+            <input type="text" name="isbn" value="<%= item.isbn %>" required>
+            <input type="text" name="image_url" value="<%= item.image_url %>" required>
+            <input type="text" name="description" value="<%= item.description %>" required>
+            <input type="text" name="bookshelf" value="<%= item.bookshelf %>" required>
+            <button type="submit" class="add-button">Add to Database</button>
+        </form>
+      </section>
       <% }) %>
-  </ul>
+      
+
+  </section>
 
   <footer id="footer-container">
       <i class="fab fa-facebook"></i>
@@ -47,5 +65,6 @@
 </body>
 
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="../../../public/js/app.js"></script>
 </html>

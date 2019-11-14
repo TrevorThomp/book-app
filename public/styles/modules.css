@@ -114,16 +114,22 @@ i:hover {
   align-items: center;
 }
 
-.detail-button {
+.detail-button,
+.add-button {
   width: 50%;
   transition: 0.3s;
   background-color: #266799;
   color: black;
 }
 
-.detail-button:hover {
+.detail-button:hover,
+.add-button:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+
+.add-button {
+  width: 100%;
 }
 
 /* Style Guide Styling */

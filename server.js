@@ -77,13 +77,18 @@ function createBook(request,response){
   //return id of book back to calling function
   let values = [author, title, isbn, image_url, description, normalizedBookshelf];
 
+  // return client.query(SQL, values)
+  //   .then(() => {
+  //     SQL = 'SELECT * FROM books isbn=$1';
+  //     values = [request.body.isbn];
+  //     return client.query(SQL, values)
+  //       .then(result => response.redirect(`/books/${result.rows[0].id}`))
+  //   })
+  //   .catch(handleError)
+
   return client.query(SQL, values)
-    .then(() => {
-      SQL = 'SELECT * FROM books isbn=$1';
-      values = [request.body.isbn];
-      return client.query(SQL, values)
-        .then(result => response.redirect(`/books/${result.rows[0].id}`))
-    })
+    .then(result => response.redirect(`/books/${result.rows[0].id}`))
+    .catch(handleError)
 }
 
 function getOneBook(request,response){

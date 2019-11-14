@@ -29,8 +29,12 @@ This application uses: Node.Js, Express.Js, PostgresQL, EJS, JavaScript and CSS.
 
 11-13-2019 6:45am - Application now has style guide and color pallete.
 
+11-13-2019 8:00pm - Application now views saved books in detail view.
+
+11-14-2019 8:30am - Application now saves search books to database.
+
 ## Credits and Collaborations
-Travis Skyles
+Natalie Alway
 
 ## Feature #1: Database Configuration
 
@@ -50,8 +54,20 @@ Number and name of feature: Saved books Display
 
 Estimate of time needed to complete: 60 minutes
 
-Start time: 9:05am
+Start time: 6:05pm
 
-Finish time: 
+Finish time: 8:00pm
 
-Actual time needed to complete: 
+Actual time needed to complete: 1 hour 55 minutes
+
+## Feature #3: Add search books to database
+
+Number and name of feature: Add search books to database
+
+Estimate of time needed to complete: 60 minutes
+
+Start time: 7:00am
+
+Finish time: 8:30am
+
+Actual time needed to complete: 1 hour 30 minutes
