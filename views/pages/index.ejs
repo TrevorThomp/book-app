@@ -18,7 +18,7 @@
   <main>
       
       <h2 id="title"><span id="count"><%= books.length %></span> Saved Books</h2>
-      
+
     <ul id="result-container">
     <% books.forEach(item => { %>
     <div class="books">
@@ -27,7 +27,7 @@
       <li id="book-title"><%= item.title %></li>
       <li id="author"><%= item.author %></li>
       <li id="description"><%= item.description %></li>
-      <li><a href="/books/<% item.id %>">View Details</a></li>
+      <li><a href="/books/<%= item.id %>">View Details</a></li>
     </div>
     <% }) %>
 </ul>
