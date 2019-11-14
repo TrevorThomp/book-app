@@ -87,3 +87,10 @@
   background-color: antiquewhite;
   margin-bottom: 20px;
 }
+
+#shelf-dropdown {
+  width: 60%;
+  height: 68px;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+}
