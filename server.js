@@ -35,18 +35,18 @@ app.get('/books/:id', getOneBook);
 
 function Book(info) {
   const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
-  let httpRegex = /^(http:\/\/)/g;
+  let httpRegex = /^(http:\/\/)/g
 
-  this.title = info.title || 'No title available';
-  this.author = info.authors || 'No author available';
-  this.description = info.description || 'No description available';
+  this.title = info.title ? info.title : 'No title available';
+  this.author = info.authors ? info.authors[0] : 'No author available';
+  this.isbn = info.industryIdentifiers ? `ISBN_13 ${info.industryIdentifiers[0].identifier}` : 'No ISBN available';
   this.image_url = info.imageLinks ? info.imageLinks.smallThumbnail.replace(httpRegex, 'https://') : placeholderImage;
+  this.description = info.description ? info.description : 'No description available';
 }
 
 function newSearch(request, response) {
   response.render('searches/new')
 }
-
 
 function createSearch(request,response) {
   let url = `https://www.googleapis.com/books/v1/volumes?q=`;
@@ -69,20 +69,43 @@ function getBooks(request,response) {
     .catch(err => handleError(err, response));
 }
 
-function createBook(){
+function createBook(request,response){
+  let normalizedBookshelf = request.body.bookshelf.toLowerCase();
   //create a SQL statement to insert book
+  let { title,author,isbn,image_url, description } = request.body;
+  let SQL = 'INSERT INTO books(title, author, isbn, image_url, description, bookshelf) VALUES($1,$2,$3,$4,$5,$6)';
   //return id of book back to calling function
+  let values = [title, author, isbn, image_url, description, normalizedBookshelf];
 
+  return client.query(SQL, values)
+    .then(() => {
+      SQL = 'SELECT * FROM books isbn=$1';
+      values = [request.body.isbn];
+      return client.query(SQL, values)
+        .then(result => response.redirect(`/books/${result.rows[0].id}`))
+    })
 }
 
-function getOneBook(){
+function getOneBook(request,response){
   //use the id passed in from the front-end (ejs form) 
+  getBookShelves()
+    .then(shelves => {
+      let SQL = 'SELECT * FROM books WHERE id=$1';
+      let values = [request.params.id];
+      client.query(SQL, values)
+        .then( result => response.render('pages/books/show', {book: result.row[0], bookshelves: shelves.rows}))
+    })
+    .catch(handleError)
+}
 
+function getBookShelves() {
+  let SQL = 'SELECT DISTINCT bookshelf FROM books ORDER BY bookshelf';
+  return client.query(SQL)
 }
 
 // Error Handler
 function handleError(error,response) {
-  response.render('/pages/error', {error: error})
+  response.render('error', {error: error})
 }
 
 // Port listener

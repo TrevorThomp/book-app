@@ -7,13 +7,12 @@
   <link rel="stylesheet" href="../../public/styles/base.css" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Yeon+Sung&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
-  <title>Document</title>
+  <title>Saved Books</title>
 </head>
 <body>
 
   <header id="header-container">
-    <h1>Best Books</h1>
-    <i class="fas fa-bars"></i>
+   <% include ../layout/header %>
   </header>
 
   <main>
@@ -22,23 +21,11 @@
           <% books.forEach(item => { %>
             <span id="count"><%= books.length %></span>
           <% }) %> Saved Books</h2>
-      <ul id="result-container">
-          <% books.forEach(item => { %>
-          <div class="books">
-            <li id="image"><img src="<%= item.image_url %>"</li>
-            <li id="book-title"><%= item.title %></li>
-            <li id="author"><%= item.author %></li>
-            <li id="description"><%= item.description %></li>
-          </div>
-          <% }) %>
-      </ul>
+          <% include ../pages/books/detail %>
   </main>
 
   <footer id="footer-container">
-      <i class="fab fa-facebook"></i>
-      <i class="fab fa-linkedin"></i>
-      <i class="fab fa-twitter"></i>
-      <i class="fas fa-envelope-open-text"></i>
+     <% include ../layout/footer %>
   </footer>
  
 </body>
