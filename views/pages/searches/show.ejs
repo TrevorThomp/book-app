@@ -41,13 +41,13 @@
         
 
       <section class="hide-me" id="hidden-form">
-        <form action="/books/detail" method="post" class="form-container">
-            <input type="text" name="title" required>
-            <input type="text" name="author" required>
-            <input type="text" name="isbn" required>
-            <input type="text" name="image_url" required>
-            <input type="text" name="description" required>
-            <input type="text" name="bookshelf" required>
+        <form action="/books" method="post" class="form-container">
+            <input type="text" name="title" value="<%= item.title %>" required>
+            <input type="text" name="author" value="<%= item.author %>" required>
+            <input type="text" name="isbn" value="<%= item.isbn %>" required>
+            <input type="text" name="image_url" value="<%= item.image_url %>" required>
+            <input type="text" name="description" value="<%= item.description %>" required>
+            <input type="text" name="bookshelf" value="<%= item.bookshelf %>" required>
             <button type="submit" class="add-button">Add to Database</button>
         </form>
       </section>
