@@ -60,3 +60,37 @@
   justify-content: center;
   align-items: center;
 }
+
+#update-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.update-btn {
+  width: 100%;
+  transition: 0.3s;
+  background-color: #266799;
+  color: black;
+}
+
+.update-btn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+#hidden-form {
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 40%;
+  padding: 20px;
+  background-color: antiquewhite;
+  margin-bottom: 20px;
+}
+
+#shelf-dropdown {
+  width: 60%;
+  height: 68px;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+}

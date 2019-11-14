@@ -19,18 +19,18 @@
       
     <h2 id="title"><span id="count"><%= books.length %></span> Saved Books</h2>
 
-    <ul id="result-container">
+    <section id="result-container">
     <% books.forEach(item => { %>
     <div class="books">
-      <li><img src="<%= item.image_url %>"</li>
-      <li><%= item.isbn %></li>
-      <li><%= item.title %></li>
-      <li><%= item.author %></li>
-      <li><%= item.description %></li>
+      <h2><img src="<%= item.image_url %>"</h2>
+      <h2><%= item.isbn %></h2>
+      <h2><%= item.title %></h2>
+      <h2><%= item.author %></h2>
+      <p><%= item.description %></p>
       <button class="detail-button"><a href="/books/<%= item.id %>">View Details</a></button>
     </div>
     <% }) %>
-</ul>
+</section>
   </main>
 
   // <footer id="footer-container">

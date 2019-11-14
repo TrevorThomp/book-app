@@ -11,10 +11,21 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const superagent = require('superagent');
 const pg = require('pg');
+const methodOverride = require('method-override')
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser());
 app.use(cors());
+
+// Middleware to handle PUT and DELETE
+app.use(methodOverride((request, response) => {
+  if (request.body && typeof request.body === 'object' && '_method' in request.body) {
+    // look in urlencoded POST bodies and delete it
+    let method = request.body._method;
+    delete request.body._method;
+    return method;
+  }
+}))
 
 // Database Connetion
 const client = new pg.Client(process.env.DATABASE_URL);
@@ -77,29 +88,20 @@ function createBook(request,response){
   //return id of book back to calling function
   let values = [author, title, isbn, image_url, description, normalizedBookshelf];
 
-  // return client.query(SQL, values)
-  //   .then(() => {
-  //     SQL = 'SELECT * FROM books isbn=$1';
-  //     values = [request.body.isbn];
-  //     return client.query(SQL, values)
-  //       .then(result => response.redirect(`/books/${result.rows[0].id}`))
-  //   })
-  //   .catch(handleError)
-
   return client.query(SQL, values)
     .then(result => response.redirect(`/books/${result.rows[0].id}`))
     .catch(handleError)
 }
 
 function getOneBook(request,response){
-  let SQL = 'SELECT * FROM books WHERE id=$1';
-  let values = [request.params.id];
-
-  return client.query(SQL, values)
-    .then(result => {
-      response.render('books/show', {result: result.rows[0]})
+  getBookShelves()
+    .then(shelves => {
+      let SQL = 'SELECT * FROM books WHERE id=$1';
+      let values = [request.params.id];
+      return client.query(SQL, values)
+        .then(result => response.render('books/show', {result: result.rows[0], bookshelves: shelves.rows}))
     })
-    .catch(handleError)
+    .catch(handleError);
 }
 
 function getBookShelves() {
