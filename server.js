@@ -73,9 +73,9 @@ function createBook(request,response){
   let normalizedBookshelf = request.body.bookshelf.toLowerCase();
   //create a SQL statement to insert book
   let { title,author,isbn,image_url, description } = request.body;
-  let SQL = 'INSERT INTO books(title, author, isbn, image_url, description, bookshelf) VALUES($1,$2,$3,$4,$5,$6)';
+  let SQL = 'INSERT INTO books(author, title, isbn, image_url, description, bookshelf) VALUES($1,$2,$3,$4,$5,$6) RETURNING id';
   //return id of book back to calling function
-  let values = [title, author, isbn, image_url, description, normalizedBookshelf];
+  let values = [author, title, isbn, image_url, description, normalizedBookshelf];
 
   return client.query(SQL, values)
     .then(() => {
@@ -87,13 +87,12 @@ function createBook(request,response){
 }
 
 function getOneBook(request,response){
-  //use the id passed in from the front-end (ejs form) 
-  getBookShelves()
-    .then(shelves => {
-      let SQL = 'SELECT * FROM books WHERE id=$1';
-      let values = [request.params.id];
-      client.query(SQL, values)
-        .then( result => response.render('pages/books/show', {book: result.row[0], bookshelves: shelves.rows}))
+  let SQL = 'SELECT * FROM books WHERE id=$1';
+  let values = [request.params.id];
+
+  return client.query(SQL, values)
+    .then(result => {
+      response.render('books/show', {result: result.rows[0]})
     })
     .catch(handleError)
 }

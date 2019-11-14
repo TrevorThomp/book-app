@@ -17,16 +17,25 @@
 
   <main>
       
-      <h2 id="title">
-          <% books.forEach(item => { %>
-            <span id="count"><%= books.length %></span>
-          <% }) %> Saved Books</h2>
-          <% include ../pages/books/detail %>
+    <h2 id="title"><span id="count"><%= books.length %></span> Saved Books</h2>
+
+    <ul id="result-container">
+    <% books.forEach(item => { %>
+    <div class="books">
+      <li><img src="<%= item.image_url %>"</li>
+      <li><%= item.isbn %></li>
+      <li><%= item.title %></li>
+      <li><%= item.author %></li>
+      <li><%= item.description %></li>
+      <button class="detail-button"><a href="/books/<%= item.id %>">View Details</a></button>
+    </div>
+    <% }) %>
+</ul>
   </main>
 
-  <footer id="footer-container">
-     <% include ../layout/footer %>
-  </footer>
+  // <footer id="footer-container">
+  //    <% include ../layout/footer %>
+  // </footer>
  
 </body>
 </html>

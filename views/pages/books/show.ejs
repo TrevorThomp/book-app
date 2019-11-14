@@ -1,12 +1,44 @@
-<ul id="result-container">
-  <% books.forEach(item => { %>
-  <div class="books">
-    <li id="image"><img src="<%= item.image_url %>"</li>
-    <li id="book-title"><%= item.title %></li>
-    <li id="author"><%= item.author %></li>
-    <li id="description"><%= item.description %></li>
-    <li><%= item.isbn %></li>
-    <li><%= item.bookshelf %></li>
-  </div>
-  <% }) %>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../../public/styles/base.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Yeon+Sung&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
+        <title>Saved Books</title>
+      </head>
+<body>
+
+    <header id="header-container">
+        <h1>Best Books</h1>
+        <nav>
+          <div class="icon-menu"></div>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/searches/new">Book Search</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <h2 id="title">Detail View</h2>
+  
+      <ul id="result-container">
+          <div class="books">
+             <li id="image"><img src="<%= result.image_url %>"</li>
+             <li id="book-title"><%= result.title %></li>
+             <li id="author"><%= result.author %></li>
+             <li id="description"><%= result.description %></li>
+             <li><%= result.isbn %></li>
+             <li><%= result.bookshelf %></li>
+          </div>
+        </ul>
+        <div id="button-wrapper">
+            <button class="detail-button"><a href="/">Home Page</a></button>
+        </div>
+        
+
+</body>
+</html>
+

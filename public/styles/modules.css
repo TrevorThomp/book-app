@@ -108,12 +108,20 @@ i:hover {
   -moz-osx-font-smoothing: grayscale;
 }
 
-#detail-button {
-  width: 100%;
-  transition: 0.3s;
+#button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#detail-button:hover {
+.detail-button {
+  width: 50%;
+  transition: 0.3s;
+  background-color: #266799;
+  color: black;
+}
+
+.detail-button:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
