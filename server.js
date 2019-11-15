@@ -113,7 +113,7 @@ function getBookShelves() {
 
 function updateBook(request,response) {
   let { author, title, isbn, image_url, description, bookshelf} = request.body;
-  let SQL = 'UPDATE books SET author=$1, title=$2, isbn=$3, image_url=$4, description=$5, bookshelf=$6, WHERE id=$7';
+  let SQL = 'UPDATE books SET author=$1, title=$2, isbn=$3, image_url=$4, description=$5, bookshelf=$6 WHERE id=$7';
 
   let values = [author, title, isbn, image_url, description, bookshelf, request.params.id];
 

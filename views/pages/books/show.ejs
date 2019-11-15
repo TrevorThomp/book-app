@@ -34,7 +34,11 @@
              <p><%= result.bookshelf %></p>
              <div id="update-wrapper">
                <button class="update-btn btn-update"><a href="">Update Details</a></button>
-               <button class="update-btn"><a href="">Delete Book</a></button>
+               <form action="/books/<%= result.id %>" method="post">
+                 <input type="hidden" name="_method" value="delete">
+                <button class="update-btn"><a href="">Delete Book</a></button>
+               </form>
+               
              </div>
           </div>
 
