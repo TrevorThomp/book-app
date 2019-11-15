@@ -33,6 +33,8 @@ This application uses: Node.Js, Express.Js, PostgresQL, EJS, JavaScript and CSS.
 
 11-14-2019 8:30am - Application now saves search books to database.
 
+11-15-2019 9:00am - Application now has update book and delete book functionality.
+
 ## Credits and Collaborations
 Natalie Alway
 
@@ -71,3 +73,15 @@ Start time: 7:00am
 Finish time: 8:30am
 
 Actual time needed to complete: 1 hour 30 minutes
+
+## Feature #3: Update and Delete
+
+Number and name of feature: Update and Delete
+
+Estimate of time needed to complete: 60 minutes
+
+Start time: 7:00am
+
+Finish time: 9:00am
+
+Actual time needed to complete: 2 hours
