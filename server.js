@@ -43,6 +43,8 @@ app.get('/searches/new', newSearch);
 app.post('/searches', createSearch);
 app.post('/books', createBook);
 app.get('/books/:id', getOneBook);
+app.put('/books/:id', updateBook);
+app.delete('/books/:id', deleteBook);
 
 function Book(info) {
   const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
@@ -107,6 +109,26 @@ function getOneBook(request,response){
 function getBookShelves() {
   let SQL = 'SELECT DISTINCT bookshelf FROM books ORDER BY bookshelf';
   return client.query(SQL)
+}
+
+function updateBook(request,response) {
+  let { author, title, isbn, image_url, description, bookshelf} = request.body;
+  let SQL = 'UPDATE books SET author=$1, title=$2, isbn=$3, image_url=$4, description=$5, bookshelf=$6, WHERE id=$7';
+
+  let values = [author, title, isbn, image_url, description, bookshelf, request.params.id];
+
+  return client.query(SQL, values)
+    .then(response.redirect(`/books/${request.params.id}`))
+    .catch(handleError)
+}
+
+function deleteBook(request,response) {
+  let SQL = 'DELETE FROM books WHERE id=$1';
+  let values = [request.params.id];
+
+  return client.query(SQL, values)
+    .then(response.redirect('/'))
+    .catch(handleError)
 }
 
 // Error Handler
