@@ -39,23 +39,8 @@
           </div>
 
           <section class="hide-me" id="hidden-form">
-              <form id="<% formAction %>" action="<%= formAction === 'Add' ? '/book' : `/books/${result.id}` %>" method="post">
-                <input type="hidden" name="_method" value="<%= formAction === 'Add' ? 'post' : 'put' %>">
-                  <input type="text" name="title" value="<%= result.title %>" required>
-                  <input type="text" name="author" value="<%= result.author %>" required>
-                  <input type="text" name="isbn" value="<%= result.isbn %>" required>
-                  <input type="text" name="image_url" value="<%= result.image_url %>" required>
-                  <input type="text" name="description" value="<%= result.description %>" required>
-                  <select name="" id="shelf-dropdown">
-                     
-                    <% bookshelves.forEach(index => { %>
-                      <option value="<%= index.bookshelf %>"><%= index.bookshelf %></option>
-                  <%  }) %>
-
-                  </select>
-                  <button type="submit" class="add-button">Update Book</button>
-              </form>
-            </section>
+            <%- include('./form', { formAction: 'update', result: result}) %>
+          </section>
         </section>
 
 

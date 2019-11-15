@@ -43,7 +43,7 @@ app.get('/searches/new', newSearch);
 app.post('/searches', createSearch);
 app.post('/books', createBook);
 app.get('/books/:id', getOneBook);
-app.put('/books/:d', updateBook);
+app.put('/books/:id', updateBook);
 app.delete('/books/:id', deleteBook);
 
 function Book(info) {
