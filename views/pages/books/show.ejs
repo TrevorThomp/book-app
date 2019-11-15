@@ -39,8 +39,8 @@
           </div>
 
           <section class="hide-me" id="hidden-form">
-              <form action="" method="post">
-                <input type="hidden" name="_method" value="">
+              <form id="<% formAction %>" action="<%= formAction === 'Add' ? '/book' : `/books/${result.id}` %>" method="post">
+                <input type="hidden" name="_method" value="<%= formAction === 'Add' ? 'post' : 'put' %>">
                   <input type="text" name="title" value="<%= result.title %>" required>
                   <input type="text" name="author" value="<%= result.author %>" required>
                   <input type="text" name="isbn" value="<%= result.isbn %>" required>
@@ -57,6 +57,9 @@
               </form>
             </section>
         </section>
+
+
+
 
 
 
